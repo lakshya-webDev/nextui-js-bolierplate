@@ -57,6 +57,27 @@ public-hoist-pattern[]=*@nextui-org/*
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
+### How to use meta tags in Next JS adding the common meta data text in json and use in each page
+```bash
+{
+    "home": {
+        "title": "Home - Next.js + NextUI",
+        "description": "Make beautiful websites regardless of your design experience."
+    },
+    "employees": {
+        "title": "Employees - All Employees List",
+        "description": "Welcome to the Employees Page listing"
+    }
+}
+
+eg:for page.jsx
+add below
+export const metadata = {
+  title: MetData['home'].title,
+  description: MetData['home'].description,
+}
+
+```
 ## License
 
 Licensed under the [MIT license](https://github.com/nextui-org/next-pages-template/blob/main/LICENSE).

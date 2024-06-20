@@ -1,7 +1,5 @@
 import {
-  Button,
   Kbd,
-  Link,
   Input,
   Navbar as NextUINavbar,
   NavbarContent,
@@ -9,7 +7,6 @@ import {
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
-  NavbarMenuItem,
   link as linkStyles,
 } from '@nextui-org/react';
 import NextLink from 'next/link';
@@ -17,14 +14,7 @@ import clsx from 'clsx';
 
 import { siteConfig } from '@/config/site';
 import { ThemeSwitch } from '@/components/theme-switch';
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from '@/components/icons';
+import { SearchIcon, Logo } from '@/components/icons';
 
 export const Navbar = () => {
   const searchInput = (

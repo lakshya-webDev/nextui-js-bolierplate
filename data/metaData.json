@@ -1,0 +1,10 @@
+{
+    "home": {
+        "title": "Home - Next.js + NextUI",
+        "description": "Make beautiful websites regardless of your design experience."
+    },
+    "employees": {
+        "title": "Employees - All Employees List",
+        "description": "Welcome to the Employees Page listing"
+    }
+}

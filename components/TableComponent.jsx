@@ -26,7 +26,7 @@ import ModalComponent from "./ModalComponent";
 export default function TableComponent({ columns, employeesData }) {
     const [modalType, setModalType] = useState("");
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+    const [modalData, setModalData] = useState(null);
     const [filterValue, setFilterValue] = React.useState("");
     const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
     const [visibleColumns, setVisibleColumns] = React.useState(new Set(columns.map((col) => col.uid)));
@@ -103,17 +103,17 @@ export default function TableComponent({ columns, employeesData }) {
                 return (
                     <div className="relative flex items-center gap-2">
                         <Tooltip content="Details">
-                            <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => openModal('view')}>
+                            <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => openModal('view', employeesData)}>
                                 <EyeIcon />
                             </span>
                         </Tooltip>
                         <Tooltip content="Edit user">
-                            <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => openModal('edit')}>
+                            <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => openModal('edit', employeesData)}>
                                 <EditIcon />
                             </span>
                         </Tooltip>
                         <Tooltip color="danger" content="Delete user">
-                            <span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => openModal('delete')}>
+                            <span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => openModal('delete', employeesData)}>
                                 <DeleteIcon />
                             </span>
                         </Tooltip>
@@ -127,9 +127,10 @@ export default function TableComponent({ columns, employeesData }) {
         console.log(`Modal is ${isOpen ? 'open' : 'closed'}`);
     }, [isOpen]);
 
-    const openModal = (type) => {
+    const openModal = (type, data) => {
         console.log(type, ":TYPE");
         setModalType(type);
+        setModalData(data)
         onOpen();
     };
 
@@ -307,10 +308,19 @@ export default function TableComponent({ columns, employeesData }) {
                     )}
                 </TableBody>
             </Table>
-            {isOpen && <ModalComponent title={`${modalType} employee`} isOpen={isOpen} onOpenChange={onOpenChange} buttonText={modalType === 'add' ? 'save' : modalType === 'edit' ? 'update' : modalType === 'delete' ? 'delete' : ''}>
-                {modalType === 'view' && <div>View Employee Details</div>}
-                {modalType === 'edit' && <div>Edit Employee Form</div>}
-                {modalType === 'delete' && <div>Are you sure you want to delete this employee?</div>}
+            {isOpen && <ModalComponent title={`${modalType} employee id: ${modalData.id}`} isOpen={isOpen} onOpenChange={onOpenChange} buttonText={modalType === 'add' ? 'save' : modalType === 'edit' ? 'update' : modalType === 'delete' ? 'Yes' : ''}>
+                {modalType === 'view' && modalData && (
+                    <div>
+                        <p>Name: {modalData.employee_name}</p>
+                        <p>Salary: {modalData.employee_salary}</p>
+                    </div>
+                )}
+                {modalType === 'edit' && modalData && (
+                    <div>Edit Employee Form for {modalData.employee_name}</div>
+                )}
+                {modalType === 'delete' && modalData && (
+                    <div>Are you sure you want to delete {modalData.employee_name} whose <b>Employee ID:{modalData.id}</b> ?</div>
+                )}
             </ModalComponent>}
         </React.Fragment>
     );

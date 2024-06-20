@@ -1,14 +1,11 @@
 'use client'
 import { Link } from '@nextui-org/react';
 import { Navbar } from '@/components/navbar';
-import Header from './head';
 import AppThemeProvider from 'app/provider';
 export default function DefaultLayout({ children }) {
   return (
     <AppThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-
       <div className="relative flex flex-col h-screen">
-        <Header />
         <Navbar />
         <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
           {children}

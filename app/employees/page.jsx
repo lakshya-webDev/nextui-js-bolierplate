@@ -1,6 +1,7 @@
 import { title } from '@/components/primitives';
 import TableComponent from '@/components/TableComponent';
 import { APP_URL } from 'utils/constants';
+import MetData from "../../data/metaData.json"
 
 async function getEmployees() {
   const res = await fetch(`${APP_URL}/employees`)
@@ -11,6 +12,11 @@ async function getEmployees() {
 
   return res.json()
 }
+export const metadata = {
+  title: MetData['employees'].title,
+  description: MetData['employees'].description,
+}
+
 export default async function Employees() {
   const data = await getEmployees()
   const columns = [

@@ -2,10 +2,14 @@ import { Link } from '@nextui-org/link';
 import { Snippet } from '@nextui-org/snippet';
 import { Code } from '@nextui-org/code';
 import { button as buttonStyles } from '@nextui-org/theme';
-
 import { GithubIcon } from '@/components/icons';
 import { siteConfig } from '@/config/site';
 import { subtitle, title } from '@/components/primitives';
+import MetData from "../data/metaData.json"
+export const metadata = {
+  title: MetData['home'].title,
+  description: MetData['home'].description,
+}
 
 export default function RootPage() {
   return (
