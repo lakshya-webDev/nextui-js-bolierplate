@@ -1,22 +1,19 @@
-"use client"
-import { useState, useEffect } from "react";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
-import { useSwitch } from "@nextui-org/react";
-import { useTheme } from "next-themes";
-import clsx from "clsx";
+'use client';
+import { useState, useEffect } from 'react';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { useSwitch } from '@nextui-org/react';
+import { useTheme } from 'next-themes';
+import clsx from 'clsx';
 
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
+import { SunFilledIcon, MoonFilledIcon } from '@/components/icons';
 
-export const ThemeSwitch = ({
-  className,
-  classNames,
-}) => {
+export const ThemeSwitch = ({ className, classNames }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   const { theme, setTheme } = useTheme();
 
   const onChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
   const {
@@ -27,7 +24,7 @@ export const ThemeSwitch = ({
     getInputProps,
     getWrapperProps,
   } = useSwitch({
-    isSelected: theme === "light",
+    isSelected: theme === 'light',
     onChange,
   });
 
@@ -42,7 +39,7 @@ export const ThemeSwitch = ({
     <Component
       {...getBaseProps({
         className: clsx(
-          "px-px transition-opacity hover:opacity-80 cursor-pointer",
+          'px-px transition-opacity hover:opacity-80 cursor-pointer',
           className,
           classNames?.base,
         ),
@@ -56,15 +53,15 @@ export const ThemeSwitch = ({
         className={slots.wrapper({
           class: clsx(
             [
-              "w-auto h-auto",
-              "bg-transparent",
-              "rounded-lg",
-              "flex items-center justify-center",
-              "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
-              "pt-px",
-              "px-0",
-              "mx-0",
+              'w-auto h-auto',
+              'bg-transparent',
+              'rounded-lg',
+              'flex items-center justify-center',
+              'group-data-[selected=true]:bg-transparent',
+              '!text-default-500',
+              'pt-px',
+              'px-0',
+              'mx-0',
             ],
             classNames?.wrapper,
           ),

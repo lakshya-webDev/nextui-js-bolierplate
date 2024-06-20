@@ -4,9 +4,9 @@ This is a template for creating applications using Next.js 14 (App directory) an
 
 [Try it on CodeSandbox](https://githubbox.com/nextui-org/next-pages-template)
 
->Note: Since Next.js 14, the pages router is recommend migrating to the [new App Router](https://nextjs.org/docs/app) to leverage React's latest features
+> Note: Since Next.js 14, the pages router is recommend migrating to the [new App Router](https://nextjs.org/docs/app) to leverage React's latest features
 >
->Read more: [App Router](https://nextjs.org/docs/app/)
+> Read more: [App Router](https://nextjs.org/docs/app/)
 
 ## Technologies Used
 
@@ -21,7 +21,14 @@ This is a template for creating applications using Next.js 14 (App directory) an
 
 To create a new project based on this template using `create-next-app`, run the following command:
 
-## For Typescript use below command to get boilerplate template used with demo pages
+### For Javascript use below command to get boilerplate template used with demo pages
+
+```bash
+git clone https://github.com/lakshya-webDev/nextui-js-bolierplate.git
+```
+
+### For Typescript use below command to get boilerplate template used with demo pages
+
 ```bash
 npx create-next-app -e https://github.com/nextui-org/next-pages-template
 ```

@@ -4,10 +4,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/config/*": ["config/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/styles/*": ["styles/*"],
+      "@/components/*": ["./components/*"],
+      "@/config/*": ["./config/*"],
+      "@/layouts/*": ["./layouts/*"],
+      "@/styles/*": ["./styles/*"]
     }
   }
 }
